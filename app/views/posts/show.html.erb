@@ -1,4 +1,4 @@
-<h1> <%= @post.title %> by <%= @post.author.email %> </h1>
+<h1>Post: <%= @post.title %> by <%= @post.author.email %> </h1>
 <h2>Content: </h2>
 <p>
   <%= @post.content %>
@@ -7,5 +7,23 @@
   <%= @post.url %>
 </p>
 
+<h3>Subs...</h3>
+
+<ul>
+  <% @post.subs.each do |sub| %>
+    <li>
+      <%= link_to "#{sub.title}", sub_url(sub) %>
+    </li>
+  <% end %>
+</ul>
+
+<h1>Comments</h1>
+<%= link_to "Comment on this post!" , new_post_comment_url(@post) %>
+
+  <%  @post.comments.each do |comment| %>
+    <li>
+      <%= link_to shorten(comment.content), comment_url(comment) %>
+    </li>
+  <%  end %>
 
 <%= link_to "Edit post", edit_post_url(@post) %>

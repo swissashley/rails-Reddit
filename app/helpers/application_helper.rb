@@ -7,4 +7,13 @@ module ApplicationHelper
       </input>
     ".html_safe
   end
+
+  def shorten(content)
+    if content.length > 10
+      return (content[0..10] + "...")
+    else
+      return content
+    end
+
+  end
 end

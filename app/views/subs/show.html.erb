@@ -1,4 +1,4 @@
-<h1><%= @sub.title %></h1>
+<h1>Sub: <%= @sub.title %></h1>
 <h2>Description</h2>
 <p>
   <%= @sub.description %>
@@ -6,7 +6,7 @@
 
 
 <%= link_to "Make a post!", new_post_url %>
-
+<h2>Posts....</h2>
 <ul>
   <% @sub.posts.each do |post| %>
     <li>
