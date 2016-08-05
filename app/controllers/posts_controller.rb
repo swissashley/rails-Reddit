@@ -12,11 +12,16 @@ class PostsController < ApplicationController
     post_hash[:sub_id] = 1
     @post = Post.new(post_hash)
     if @post.save
+
+      @post.post_subs << PostSub.new
+
       redirect_to post_url(@post)
     else
       flash.now[:errors] = @post.errors.full_messages
       render :new
     end
+
+
   end
 
   def show
@@ -43,7 +48,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :url, :content)
+    params.require(:post).permit(:title, :url, :content, sub_ids: [])
   end
 
   def is_author
