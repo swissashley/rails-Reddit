@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <% if current_user %>
+    <%= render 'shared/dashboard' %>
+  <% else %>
+    <%= button_to "Sign In", new_session_url, method: :get %>
+  <% end %>
+
 <main>
   <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>

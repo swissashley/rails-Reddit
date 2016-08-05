@@ -1,0 +1,10 @@
+<h1> <%= @post.title %> by <%= @post.author.email %> </h1>
+<h2>Content: </h2>
+<p>
+  <%= @post.content %>
+</p>
+<p>
+  <%= @post.url %>
+</p>
+
+<%= link_to "Edit post", edit_post_url(@post) %>
