@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :subs, only: [:new, :create, :index, :show, :destroy, :edit, :update]
   resources :posts, only:  [:new, :create, :show, :destroy, :edit, :update] do
     resources :comments, only: [:new]
+    post '/upvote', to: 'votes#upvote'
+    post '/downvote', to: 'votes#downvote'
   end
 
   resources :comments, only: [:create, :show]

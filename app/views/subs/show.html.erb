@@ -11,6 +11,8 @@
   <% @sub.posts.each do |post| %>
     <li>
       <%= link_to "#{post.title}", post_url(post) %>
+      <%= button_to "+" , post_upvote_url(post) %>
+      <%= button_to "-" , post_downvote_url(post) %>
     </li>
   <% end %>
 </ul>

@@ -7,6 +7,7 @@ class SubsController < ApplicationController
   end
 
   def show
+    @vote = Vote.new
     @sub = Sub.find_by(id: params[:id])
     render :show
   end

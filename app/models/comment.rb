@@ -24,6 +24,8 @@ class Comment < ActiveRecord::Base
     foreign_key: :parent_comment_id,
     class_name: :Comment
 
+  has_many :votes, as: :voteable
+
   belongs_to :author,
     foreign_key: :user_id,
     class_name: :User

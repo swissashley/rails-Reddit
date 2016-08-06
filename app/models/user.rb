@@ -21,7 +21,8 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :comments
-
+  has_many :votes, as: :voteable
+  
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
   end

@@ -20,7 +20,7 @@ class Post < ActiveRecord::Base
     class_name: :User
 
   has_many :comments
-  
+  has_many :votes, as: :voteable
   has_many :post_subs,
     foreign_key: :post_id,
     class_name: :PostSub,
