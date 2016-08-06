@@ -20,10 +20,18 @@
 <h1>Comments</h1>
 <%= link_to "Comment on this post!" , new_post_comment_url(@post) %>
 
-  <%  @post.comments.each do |comment| %>
+
+  <%  @post.comments.where(parent_comment_id: nil).each do |comment| %>
     <li>
       <%= link_to shorten(comment.content), comment_url(comment) %>
     </li>
+    <% unless comment.comments.nil? %>
+      <ul>
+        <%= render "comments/comment", c: comment.comments %>
+      </ul>
+    <% end %>
+
+
   <%  end %>
 
 <%= link_to "Edit post", edit_post_url(@post) %>

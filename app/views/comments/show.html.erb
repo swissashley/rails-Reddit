@@ -3,6 +3,7 @@
 <div>
   <br>
   <form action="<%= comments_url %>" method="post">
+    <input type="hidden" name="comment[parent_comment_id]" value= "<%= @comment.id %>">
     <%= auth_token %>
   <textarea name="comment[content]" rows="8" cols="40"></textarea>
   <input type="submit" value="Submit">
